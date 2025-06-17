@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>Library</title>
 </head>
+
 <body>
-    <h1>Library</h1>
-    <div id="bookContainer"></div>
-    <button id="bookForm">New Book</button>
+    <header>
+        <h1>Library</h1>
+    </header>
+    <main>
+        <div id="book-container" class="book-container"></div>
+        <button id="new-book">New Book</button>
+    </main>
+    <dialog id="dialog-box" closedby="any">
+        <form>
+            <h2>Book Data</h2>
+            <label for="title">Title</label>
+            <input id="title" type="text" required>
+            <label for="author">Author</label>
+            <input id="author" type="text" required>
+            <label for="pages">Pages</label>
+            <input id="pages" type="text" required>
+
+            <div class="check-box">
+                <input id="have-read" type="checkbox" required>
+                <label for="have-read" style="display: inline;">Already Read?</label>
+            </div>
+            <button id="add-book">Add Book</button>
+        </form>
+    </dialog>
     <script src="script.js"></script>
 </body>
+
 </html>

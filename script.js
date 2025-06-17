@@ -6,8 +6,23 @@ const myLibrary = [
         pages: 180, 
         read: true, 
     },
-    { title: "To Kill a Mockingbird", author: "Harper Lee", pages: 171, read: false, id: "94bc1adf-a1b6-4d76-a48c-0eb18cc70872"},
+    { 
+        id: "94bc1adf-a1b6-4d76-a48c-0eb18cc70872", 
+        title: "To Kill a Mockingbird", 
+        author: "Harper Lee", 
+        pages: 171, 
+        read: false, 
+    },
 ];
+
+const newBook = document.getElementById("new-book");
+const addBook = document.getElementById("add-book");
+const dialogBox = document.getElementById("dialog-box");
+
+newBook.addEventListener("click", () => {
+    dialogBox.showModal();
+});
+
 
 function Book(title, author, pages, read, id) {
     this.title = title;
@@ -24,7 +39,7 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks(array) {
-    const container = document.getElementById("bookContainer");
+    const container = document.getElementById("book-container");
     container.innerHTML = '';
     array.forEach(book => {
         const card = document.createElement("div");

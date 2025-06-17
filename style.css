@@ -13,12 +13,6 @@
     margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        interpolate-size: allow-keywords;
-    }
-}
-
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -65,4 +59,38 @@ h6 {
 
 #root,
 #__next {
-    isolation: isolate; }
+    isolation: isolate;
+}
+
+header, main{
+    margin: 1rem;
+}
+
+.book-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card{
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+#dialog-box {
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin: auto;
+    background: #FFF;
+    padding: 2rem;
+}
+
+input{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.check-box input{
+    display: inline;
+}

@@ -1,25 +1,15 @@
 const myLibrary = [
     {
-        title: "Harry Potter and the Philosopher's Stone",
-        author: 'J.K. Rowling',
-        pages: 223,
-        read: true,
-        id: 'a4e8b1c3-e1b7-41d4-aafe-012158805ee9'
+        id: "ffde993e-a031-4e04-990d-50c00f5ba98c",
+        title: "The Great Gatsby", 
+        author: "F. Scott Fitzgerald", 
+        pages: 180, 
+        read: true, 
     },
-    {
-        title: "To Kill a Mockingbird",
-        author: "Harper Lee",
-        pages: "281",
-        read: false,
-        id: '33626a83-a406-4717-aa06-b0461400cc4f'
-    }
+    { title: "To Kill a Mockingbird", author: "Harper Lee", pages: 171, read: false, id: "94bc1adf-a1b6-4d76-a48c-0eb18cc70872"},
 ];
 
 function Book(title, author, pages, read, id) {
-    if (!new.target) {
-        throw Error("Use new!");
-    }
-
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -33,5 +23,30 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
-// addBookToLibrary("The Lion, the Witch and the Wardrobe", "C. S. Lewis", 172, false);
-// console.log(myLibrary);
+function displayBooks(array) {
+    const container = document.getElementById("bookContainer");
+    container.innerHTML = '';
+    array.forEach(book => {
+        const card = document.createElement("div");
+        card.className = "card";
+        const title = document.createElement('h2');
+        title.textContent = book.title;
+
+        const author = document.createElement('p');
+        author.textContent = book.author;
+
+        const pages = document.createElement('p');
+        pages.textContent = book.pages;
+
+        const read = document.createElement('p');
+        read.textContent = book.read;
+
+        card.appendChild(title);
+        card.appendChild(author);
+        card.appendChild(pages);
+        card.appendChild(read);
+        container.appendChild(card);
+    });
+}
+
+displayBooks(myLibrary);

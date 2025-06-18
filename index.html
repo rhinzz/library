@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Library</title>
 </head>
@@ -11,7 +15,7 @@
 <body>
     <header>
         <div class="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48px" height="auto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40px" height="40px">
                 <title>You found me :)</title>
                 <path
                     d="M19 2L14 6.5V17.5L19 13V2M6.5 5C4.55 5 2.45 5.4 1 6.5V21.16C1 21.41 1.25 21.66 1.5 21.66C1.6 21.66 1.65 21.59 1.75 21.59C3.1 20.94 5.05 20.5 6.5 20.5C8.45 20.5 10.55 20.9 12 22C13.35 21.15 15.8 20.5 17.5 20.5C19.15 20.5 20.85 20.81 22.25 21.56C22.35 21.61 22.4 21.59 22.5 21.59C22.75 21.59 23 21.34 23 21.09V6.5C22.4 6.05 21.75 5.75 21 5.5V19C19.9 18.65 18.7 18.5 17.5 18.5C15.8 18.5 13.35 19.15 12 20V6.5C10.55 5.4 8.45 5 6.5 5Z" />
@@ -20,20 +24,24 @@
         </div>
         <button id="new-book">New Book</button>
     </header>
-    <main>
-        <div id="book-container" class="book-container"></div>
-    </main>
+    <main id="book-container" class="book-container"></main>
     <dialog id="dialog-box" closedby="any">
-        <form>
+        <form id="book">
             <h2>Book Data</h2>
-            <label for="title">Title</label>
+            <label for="title">Title <span class="required">*</span></label>
             <input id="title" type="text" required>
-            <label for="author">Author</label>
+
+            <label for="author">Author <span class="required">*</span></label>
             <input id="author" type="text" required>
-            <label for="pages">Pages</label>
-            <input id="pages" type="text" required>
+
+            <label for="pages">Pages <span class="required">*</span></label>
+            <input id="pages" type="number" required>
+
+            <label for="cover-image">Cover Image</label>
+            <input type="file" name="image" id="cover-image" accept="image/*">
+
             <div class="check-box">
-                <input id="have-read" type="checkbox" required>
+                <input id="have-read" type="checkbox">
                 <label for="have-read" style="display: inline;">Already Read?</label>
             </div>
             <button id="add-book">Add Book</button>

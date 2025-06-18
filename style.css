@@ -13,7 +13,14 @@
     margin: 0;
 }
 
+html,
 body {
+    height: 100%;
+}
+
+body {
+    background: #F1F1F1;
+    font-family: 'Lato', sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
@@ -62,11 +69,14 @@ h6 {
     isolation: isolate;
 }
 
-header, main{
-    margin: 1rem;
+header,
+.book-container {
+    padding: 1rem 2rem;
 }
 
-header{
+header {
+    background: #1C4E80;
+    color: #FFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,22 +88,44 @@ header .logo {
     gap: 0.75rem;
 }
 
-.book-container{
+header .logo svg {
+    fill: #FFF;
+}
+
+header #new-book {
+    border: none;
+    border-radius: 1rem;
+    background: #FFF;
+    color: #1C4E80;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+}
+
+.book-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
     gap: 1rem;
-    margin-bottom: 1rem;
 }
 
-.card{
+.card {
+    background: #FFF;
     border: 1px solid black;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
 }
 
-.card .cover-image{
-    margin: 0 auto;
-    max-width: 200px;
+.card .cover-image {
+    align-self: center;
+    padding: 0.5rem 0;
+    height: 300px;
+}
+
+.card .delete-book{
+    align-self: flex-end;
+    width: min-content;
 }
 
 #dialog-box {
@@ -101,14 +133,48 @@ header .logo {
     border-radius: 1rem;
     margin: auto;
     background: #FFF;
-    padding: 2rem;
+    padding: 1.5rem;
+    width: 350px;
 }
 
-input{
+#dialog-box .required{
+    color: #da1414;
+}
+
+#dialog-box form {
+    width: 100%;
+}
+
+#dialog-box input {
     display: block;
     margin-bottom: 0.5rem;
+    width: 100%;
 }
 
-.check-box input{
+#dialog-box input[type="file"] {
+    margin: 0.5rem 0;
+}
+
+#dialog-box .check-box {
+    padding-bottom: 0.5rem;
+}
+
+#dialog-box .check-box input {
+    width: auto;
     display: inline;
+}
+
+#dialog-box h2 {
+    text-align: center;
+}
+
+#dialog-box #add-book {
+    background: #1C4E80;
+    border: none;
+    border-radius: 0.5rem;
+    color: #FFF;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.75rem 0;
+    width: 100%;
 }

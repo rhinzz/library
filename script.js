@@ -84,6 +84,7 @@ function displayBooks(array) {
 
         const author = document.createElement('p');
         author.textContent = book.author;
+        author.style.fontWeight = 600;
 
         const pages = document.createElement('p');
         pages.textContent = `${book.pages} pages`;

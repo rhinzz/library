@@ -134,6 +134,7 @@ header #new-book {
     border-radius: 4px;
     background: #e61313;
     color: #FFF;
+    cursor: pointer;
     align-self: flex-end;
     font-size: 0.85rem;
     width: min-content;

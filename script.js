@@ -5,8 +5,8 @@ const bookForm = document.getElementById("book");
 const imageInput = document.getElementById("cover-image");
 
 const myLibrary = [
-    new Book("ffde993e-a031-4e04-990d-50c00f5ba98c", "The Great Gatsby", "F. Scott Fitzgerald", 180, "library/assets/the-great-gatsby.png", true),
-    new Book("94bc1adf-a1b6-4d76-a48c-0eb18cc70872", "To Kill a Mockingbird", "Harper Lee", 171, "library/assets/to-kill-a-mocking-bird.png", false)
+    new Book("ffde993e-a031-4e04-990d-50c00f5ba98c", "The Great Gatsby", "F. Scott Fitzgerald", 180, "./assets/the-great-gatsby.png", true),
+    new Book("94bc1adf-a1b6-4d76-a48c-0eb18cc70872", "To Kill a Mockingbird", "Harper Lee", 171, "./assets/to-kill-a-mocking-bird.png", false)
 ];
 
 newBook.addEventListener("click", () => {

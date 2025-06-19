@@ -117,6 +117,12 @@ header #new-book {
     padding: 1rem;
 }
 
+.card .read{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .card .cover-image {
     align-self: center;
     padding: 0.5rem 0;
@@ -125,6 +131,7 @@ header #new-book {
 
 .card .delete-book{
     align-self: flex-end;
+    font-size: 0.75rem;
     width: min-content;
 }
 

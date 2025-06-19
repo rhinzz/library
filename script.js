@@ -3,25 +3,10 @@ const addBook = document.getElementById("add-book");
 const dialogBox = document.getElementById("dialog-box");
 const bookForm = document.getElementById("book");
 const imageInput = document.getElementById("cover-image");
-const deleteBook = document.getElementById("delete-book");
 
 const myLibrary = [
-    {
-        id: "ffde993e-a031-4e04-990d-50c00f5ba98c",
-        cover: "/assets/the-great-gatsby.png",
-        title: "The Great Gatsby",
-        author: "F. Scott Fitzgerald",
-        pages: 180,
-        read: true,
-    },
-    {
-        id: "94bc1adf-a1b6-4d76-a48c-0eb18cc70872",
-        cover: "/assets/to-kill-a-mocking-bird.png",
-        title: "To Kill a Mockingbird",
-        author: "Harper Lee",
-        pages: 171,
-        read: false,
-    },
+    new Book("ffde993e-a031-4e04-990d-50c00f5ba98c", "The Great Gatsby", "F. Scott Fitzgerald", 180, "/assets/the-great-gatsby.png", true),
+    new Book("94bc1adf-a1b6-4d76-a48c-0eb18cc70872", "To Kill a Mockingbird", "Harper Lee", 171, "/assets/to-kill-a-mocking-bird.png", false)
 ];
 
 newBook.addEventListener("click", () => {
@@ -67,9 +52,19 @@ function Book(id, title, author, pages, cover, read) {
     this.read = read;
 }
 
+Book.prototype.Read = function () {
+    return this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, cover, read) {
     const newBook = new Book(crypto.randomUUID(), title, author, pages, cover, read);
     myLibrary.push(newBook);
+}
+
+function deleteBook(btn) {
+    const bookId = btn.parentElement.dataset.id;
+    myLibrary.splice(myLibrary.indexOf(myLibrary.find((book) => bookId === book.id)), 1);
+    displayBooks(myLibrary);
 }
 
 function displayBooks(array) {
@@ -78,6 +73,7 @@ function displayBooks(array) {
     array.forEach(book => {
         const card = document.createElement("div");
         card.className = "card";
+        card.setAttribute("data-id", book.id);
 
         const image = document.createElement("img");
         image.src = book.cover;
@@ -92,12 +88,25 @@ function displayBooks(array) {
         const pages = document.createElement('p');
         pages.textContent = `${book.pages} pages`;
 
-        const read = document.createElement('p');
-        read.textContent = book.read;
+        const read = document.createElement('div');
+        read.className = "read";
+        const readLabel = document.createElement('label');
+        readLabel.textContent = "Already Read";
+        const readInput = document.createElement('input');
+        readInput.type = "checkbox";
+        readInput.addEventListener("change", () => { book.Read(); });
+        if (book.read) {
+            readInput.checked = true;
+        } else {
+            readInput.checked = false;
+        }
+        read.appendChild(readInput);
+        read.appendChild(readLabel);
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = "Delete";
-        deleteButton.className = deleteButton.id = "delete-book";
+        deleteButton.className = "delete-book";
+        deleteButton.setAttribute("onclick", "deleteBook(this)");
 
         card.appendChild(image);
         card.appendChild(title);

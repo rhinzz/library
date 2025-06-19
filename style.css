@@ -130,9 +130,17 @@ header #new-book {
 }
 
 .card .delete-book{
+    border: none;
+    border-radius: 4px;
+    background: #e61313;
+    color: #FFF;
     align-self: flex-end;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     width: min-content;
+}
+
+.card .delete-book:hover {
+    opacity: 0.8;
 }
 
 #dialog-box {

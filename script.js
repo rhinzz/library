@@ -1,4 +1,4 @@
-const newBook = document.getElementById("new-book");
+const openForm = document.getElementById("open-form");
 const addBook = document.getElementById("add-book");
 const dialogBox = document.getElementById("dialog-box");
 const bookForm = document.getElementById("book");
@@ -9,7 +9,7 @@ const myLibrary = [
     new Book("94bc1adf-a1b6-4d76-a48c-0eb18cc70872", "To Kill a Mockingbird", "Harper Lee", 171, "./assets/to-kill-a-mocking-bird.png", false)
 ];
 
-newBook.addEventListener("click", () => {
+openForm.addEventListener("click", () => {
     bookForm.reset();
     dialogBox.showModal();
 });
